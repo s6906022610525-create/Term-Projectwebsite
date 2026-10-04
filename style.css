@@ -1,0 +1,763 @@
+/* ==========================================================================
+   KMUTNB Admission System - Pure CSS (Vanilla CSS - No Frameworks)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Google Fonts & CSS Variables
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --brand-blue: #1E3A8A;
+    --brand-blue-hover: #172554;
+    --brand-orange: #F97316;
+    --brand-orange-hover: #EA580C;
+    --bg-light: #F8FAFC;
+    --text-primary: #334155;
+    --text-secondary: #64748B;
+    --border-color: #E2E8F0;
+    --radius-sm: 0.25rem;
+    --radius-md: 0.375rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    --radius-full: 9999px;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --font-family: 'Kanit', sans-serif;
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Base Styles
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: #ffffff;
+    color: var(--text-primary);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Ensure Font Awesome icons render correctly and are never overridden */
+.fa, .fas, .far, .fal, .fad, .fab, .fa-solid, .fa-regular, .fa-brands, [class*="fa-"], [class^="fa-"] {
+    font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--brand-orange);
+}
+
+/* --------------------------------------------------------------------------
+   3. Container & Layout Utilities
+   -------------------------------------------------------------------------- */
+.max-w-xs { max-width: 20rem; }
+.max-w-sm { max-width: 24rem; }
+.max-w-md { max-width: 28rem; }
+.max-w-lg { max-width: 32rem; }
+.max-w-xl { max-width: 36rem; }
+.max-w-2xl { max-width: 42rem; }
+.max-w-3xl { max-width: 48rem; }
+.max-w-4xl { max-width: 56rem; }
+.max-w-5xl { max-width: 64rem; }
+.max-w-6xl { max-width: 72rem; }
+.max-w-full { max-width: 100%; }
+
+.mx-auto { margin-left: auto; margin-right: auto; }
+.my-auto { margin-top: auto; margin-bottom: auto; }
+
+/* Display & Flexbox/Grid */
+.block { display: block; }
+.inline-block { display: inline-block; }
+.inline { display: inline; }
+.flex { display: flex; }
+.inline-flex { display: inline-flex; }
+.grid { display: grid; }
+.hidden { display: none !important; }
+
+.flex-row { flex-direction: row; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.items-start { align-items: flex-start; }
+.items-center { align-items: center; }
+.items-end { align-items: flex-end; }
+.items-baseline { align-items: baseline; }
+
+.justify-start { justify-content: flex-start; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+
+.flex-1 { flex: 1 1 0%; }
+.flex-shrink-0 { flex-shrink: 0; }
+.flex-grow { flex-grow: 1; }
+
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+.gap-1 { gap: 0.25rem; }
+.gap-2 { gap: 0.5rem; }
+.gap-3 { gap: 0.75rem; }
+.gap-4 { gap: 1rem; }
+.gap-6 { gap: 1.5rem; }
+.gap-8 { gap: 2rem; }
+.gap-10 { gap: 2.5rem; }
+.gap-12 { gap: 3rem; }
+
+/* Spacing Utilities */
+.p-0 { padding: 0; }
+.p-1 { padding: 0.25rem; }
+.p-2 { padding: 0.5rem; }
+.p-3 { padding: 0.75rem; }
+.p-4 { padding: 1rem; }
+.p-6 { padding: 1.5rem; }
+.p-8 { padding: 2rem; }
+
+.px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
+.px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+.px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+.px-8 { padding-left: 2rem; padding-right: 2rem; }
+
+.py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+.py-1\.5 { padding-top: 0.375rem; padding-bottom: 0.375rem; }
+.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+.py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+.py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+.py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+.py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+.py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+.py-24 { padding-top: 6rem; padding-bottom: 6rem; }
+
+.pt-2 { padding-top: 0.5rem; }
+.pt-4 { padding-top: 1rem; }
+.pt-6 { padding-top: 1.5rem; }
+.pt-8 { padding-top: 2rem; }
+.pb-2 { padding-bottom: 0.5rem; }
+.pb-4 { padding-bottom: 1rem; }
+.pb-6 { padding-bottom: 1.5rem; }
+.pb-8 { padding-bottom: 2rem; }
+
+.m-0 { margin: 0; }
+.m-auto { margin: auto; }
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 0.75rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-6 { margin-top: 1.5rem; }
+.mt-8 { margin-top: 2rem; }
+
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 0.75rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mb-10 { margin-bottom: 2.5rem; }
+
+.ml-1 { margin-left: 0.25rem; }
+.ml-2 { margin-left: 0.5rem; }
+.mr-1 { margin-right: 0.25rem; }
+.mr-2 { margin-right: 0.5rem; }
+.mr-3 { margin-right: 0.75rem; }
+.mr-4 { margin-right: 1rem; }
+
+.space-x-2 > * + * { margin-left: 0.5rem; }
+.space-x-3 > * + * { margin-left: 0.75rem; }
+.space-x-4 > * + * { margin-left: 1rem; }
+.space-x-6 > * + * { margin-left: 1.5rem; }
+.space-y-2 > * + * { margin-top: 0.5rem; }
+.space-y-3 > * + * { margin-top: 0.75rem; }
+.space-y-4 > * + * { margin-top: 1rem; }
+.space-y-6 > * + * { margin-top: 1.5rem; }
+
+/* Padding Directions */
+.pl-3 { padding-left: 0.75rem !important; }
+.pr-3 { padding-right: 0.75rem !important; }
+.pl-10 { padding-left: 2.75rem !important; }
+.pr-10 { padding-right: 2.75rem !important; }
+
+/* Positioning & Sizing */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.sticky { position: sticky; }
+.fixed { position: fixed; }
+.top-0 { top: 0; }
+.bottom-0 { bottom: 0; }
+.left-0 { left: 0; }
+.right-0 { right: 0; }
+.top-3 { top: 0.75rem; }
+.bottom-3 { bottom: 0.75rem; }
+.left-3 { left: 0.75rem; }
+.right-3 { right: 0.75rem; }
+.top-1\/2 { top: 50%; }
+.-translate-y-1\/2 { transform: translateY(-50%); }
+
+.z-10 { z-index: 10; }
+.z-50 { z-index: 50; }
+
+.w-full { width: 100%; }
+.w-auto { width: auto; }
+.h-full { height: 100%; }
+.h-auto { height: auto; }
+.h-16 { height: 4rem; }
+.min-h-screen { min-height: 100vh; }
+
+/* Input With Icon Component */
+.input-icon-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.input-icon-group > i.input-icon-left,
+.input-icon-group > i:first-child:not(.toggle-password) {
+    position: absolute;
+    left: 0.875rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94A3B8;
+    pointer-events: none;
+    font-size: 1rem;
+    line-height: 1;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    transition: color 0.2s ease;
+}
+
+.input-icon-group:focus-within > i.input-icon-left,
+.input-icon-group:focus-within > i:first-child:not(.toggle-password) {
+    color: var(--brand-orange);
+}
+
+.input-icon-group > input {
+    width: 100%;
+    padding-left: 2.75rem !important;
+    padding-right: 0.875rem !important;
+}
+
+.input-icon-group.has-toggle > input,
+.input-icon-group:has(.toggle-password) > input {
+    padding-right: 2.75rem !important;
+}
+
+.input-icon-group > .toggle-password {
+    position: absolute;
+    right: 0.875rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94A3B8;
+    cursor: pointer;
+    font-size: 1.05rem;
+    line-height: 1;
+    z-index: 3;
+    padding: 0.25rem;
+    transition: color 0.2s ease;
+}
+
+.input-icon-group > .toggle-password:hover {
+    color: var(--brand-blue);
+}
+
+/* --------------------------------------------------------------------------
+   4. Typography Utilities
+   -------------------------------------------------------------------------- */
+.text-xs { font-size: 0.75rem; line-height: 1rem; }
+.text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+.text-base { font-size: 1rem; line-height: 1.5rem; }
+.text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+.text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+.text-2xl { font-size: 1.5rem; line-height: 2rem; }
+.text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+.text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+.text-5xl { font-size: 3rem; line-height: 1; }
+
+.font-normal { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+.leading-relaxed { line-height: 1.625; }
+
+/* Colors */
+.text-white { color: #ffffff; }
+.text-gray-200 { color: #E2E8F0; }
+.text-gray-400 { color: #94A3B8; }
+.text-gray-500 { color: #64748B; }
+.text-gray-600 { color: #475569; }
+.text-gray-700 { color: #334155; }
+.text-gray-800 { color: #1E293B; }
+.text-gray-900 { color: #0F172A; }
+.text-brand-blue { color: var(--brand-blue); }
+.text-brand-orange { color: var(--brand-orange); }
+.text-green-600 { color: #16A34A; }
+.text-red-500 { color: #EF4444; }
+.text-red-600 { color: #DC2626; }
+.text-blue-600 { color: #2563EB; }
+
+/* --------------------------------------------------------------------------
+   5. Background, Borders & Effects
+   -------------------------------------------------------------------------- */
+.bg-white { background-color: #ffffff; }
+.bg-gray-50 { background-color: #F8FAFC; }
+.bg-gray-100 { background-color: #F1F5F9; }
+.bg-gray-200 { background-color: #E2E8F0; }
+.bg-gray-800 { background-color: #1E293B; }
+.bg-brand-blue { background-color: var(--brand-blue); }
+.bg-brand-orange { background-color: var(--brand-orange); }
+.bg-blue-50 { background-color: #EFF6FF; }
+.bg-green-50 { background-color: #F0FDF4; }
+.bg-green-100 { background-color: #DCFCE7; }
+.bg-green-500 { background-color: #22C55E; }
+.bg-green-600 { background-color: #16A34A !important; color: #ffffff !important; }
+.bg-green-700 { background-color: #15803D !important; color: #ffffff !important; }
+.bg-blue-800 { background-color: #1E40AF !important; }
+.bg-red-50 { background-color: #FEF2F2; }
+.bg-yellow-50 { background-color: #FEFCE8; }
+.bg-orange-50 { background-color: #FFF7ED; }
+
+.border { border: 1px solid var(--border-color); }
+.border-t { border-top: 1px solid var(--border-color); }
+.border-b { border-bottom: 1px solid var(--border-color); }
+.border-b-2 { border-bottom: 2px solid var(--border-color); }
+.border-gray-200 { border-color: #E2E8F0; }
+.border-gray-300 { border-color: #CBD5E1; }
+.border-gray-700 { border-color: #334155; }
+.border-white { border-color: #ffffff; }
+.border-brand-blue { border-color: var(--brand-blue); }
+.border-brand-orange { border-color: var(--brand-orange); }
+.border-green-200 { border-color: #BBF7D0; }
+.border-orange-100 { border-color: #FFEDD5; }
+
+.rounded { border-radius: var(--radius-sm); }
+.rounded-md { border-radius: var(--radius-md); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-xl { border-radius: var(--radius-xl); }
+.rounded-full { border-radius: var(--radius-full); }
+
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow { box-shadow: var(--shadow-md); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+
+.overflow-hidden { overflow: hidden; }
+.overflow-x-auto { overflow-x: auto; }
+.overflow-y-auto { overflow-y: auto; }
+.max-h-96 { max-height: 24rem; }
+
+.transition { transition: all 0.2s ease-in-out; }
+.transform { transform: translateZ(0); }
+.cursor-pointer { cursor: pointer; }
+
+/* Hover States */
+.hover\:text-brand-orange:hover { color: var(--brand-orange); }
+.hover\:text-brand-blue:hover { color: var(--brand-blue); }
+.hover\:bg-white:hover { background-color: #ffffff; }
+.hover\:bg-brand-blue:hover { background-color: var(--brand-blue); }
+.hover\:bg-brand-orange:hover { background-color: var(--brand-orange-hover) !important; color: #ffffff !important; }
+.hover\:bg-blue-800:hover { background-color: #1E40AF !important; }
+.hover\:bg-green-700:hover { background-color: #15803D !important; color: #ffffff !important; }
+.hover\:-translate-y-1:hover { transform: translateY(-0.25rem); }
+
+/* --------------------------------------------------------------------------
+   6. Navigation & Header
+   -------------------------------------------------------------------------- */
+nav {
+    width: 100%;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+#mobile-menu {
+    animation: slideDown 0.3s ease forwards;
+}
+
+#mobile-menu a {
+    display: block;
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: background 0.2s ease;
+}
+
+#mobile-menu a:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.nav-active {
+    color: var(--brand-orange) !important;
+    border-bottom: 2px solid var(--brand-orange);
+    padding-bottom: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   7. Form Controls & Validation
+   -------------------------------------------------------------------------- */
+input[type="text"], 
+input[type="email"], 
+input[type="password"], 
+input[type="date"],
+input[type="number"],
+input[type="tel"],
+select, 
+textarea {
+    width: 100%;
+    padding: 0.625rem 0.875rem;
+    border: 1px solid #CBD5E1;
+    border-radius: var(--radius-md);
+    background-color: #ffffff;
+    font-family: inherit;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--brand-orange);
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+}
+
+select:disabled, input:disabled, textarea:disabled {
+    background-color: #F8FAFC !important;
+    color: #94A3B8 !important;
+    cursor: not-allowed;
+    border-color: #E2E8F0 !important;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    accent-color: var(--brand-orange);
+    cursor: pointer;
+    width: 1rem;
+    height: 1rem;
+}
+
+.focus\:outline-none:focus {
+    outline: none;
+}
+
+.focus\:ring-2:focus {
+    box-shadow: 0 0 0 2px var(--brand-orange);
+}
+
+.input-error {
+    border-color: #EF4444 !important;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2) !important;
+    animation: shake 0.4s ease;
+}
+
+.error-message {
+    color: #DC2626;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    animation: fadeIn 0.3s ease;
+}
+
+/* --------------------------------------------------------------------------
+   8. Upload Zone (step2)
+   -------------------------------------------------------------------------- */
+.upload-zone {
+    border: 2px dashed #CBD5E1;
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    background: #F8FAFC;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.upload-zone:hover {
+    border-color: var(--brand-orange);
+    background: #FFF7ED;
+}
+
+.upload-zone i {
+    font-size: 2rem;
+    color: #9CA3AF;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.upload-zone:hover i {
+    color: var(--brand-orange);
+}
+
+/* --------------------------------------------------------------------------
+   9. Step Progress Indicator (step1-4)
+   -------------------------------------------------------------------------- */
+.step-indicator {
+    transition: all 0.3s ease;
+}
+
+.step-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    border: 2px solid #E5E7EB;
+    background-color: #ffffff;
+    color: #9CA3AF;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-sm);
+}
+
+.step-active .step-icon {
+    background-color: var(--brand-orange);
+    color: #ffffff;
+    border-color: var(--brand-orange);
+    transform: scale(1.15);
+    box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);
+}
+
+.step-completed .step-icon {
+    background-color: var(--brand-blue);
+    color: #ffffff;
+    border-color: var(--brand-blue);
+}
+
+.step-inactive .step-icon {
+    background-color: #ffffff;
+    color: #9CA3AF;
+    border-color: #E5E7EB;
+}
+
+/* --------------------------------------------------------------------------
+   10. Cards, Tables & Components
+   -------------------------------------------------------------------------- */
+.hover-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 0.75rem 1rem;
+}
+
+/* Buttons */
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-4px); }
+    40%, 80% { transform: translateX(4px); }
+}
+
+/* --------------------------------------------------------------------------
+   11. Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+    background-color: #0F172A;
+    color: #94A3B8;
+    font-size: 0.875rem;
+    margin-top: auto;
+}
+
+.site-footer a {
+    color: #CBD5E1;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.site-footer a:hover {
+    color: var(--brand-orange);
+}
+
+.footer-heading {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 12px;
+}
+
+/* Hero Overlay */
+.hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding-bottom: 1.5rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+}
+
+/* Alert Warning */
+.alert-warning {
+    background-color: #FCF9E8;
+    border: 1px solid #F3E5AB;
+    color: #9B7B22;
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   12. Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (min-width: 640px) {
+    .sm\:inline { display: inline; }
+    .sm\:inline-block { display: inline-block; }
+    .sm\:block { display: block; }
+    .sm\:flex { display: flex; }
+    .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .sm\:px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+}
+
+@media (min-width: 768px) {
+    .hero-overlay { padding-bottom: 2.5rem; }
+    .md\:flex { display: flex; }
+    .md\:grid { display: grid; }
+    .md\:hidden { display: none !important; }
+    .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .md\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .md\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+    .md\:col-span-3 { grid-column: span 3 / span 3; }
+    .md\:col-span-9 { grid-column: span 9 / span 9; }
+    .md\:text-right { text-align: right; }
+    .md\:px-12 { padding-left: 3rem; padding-right: 3rem; }
+    .md\:mb-0 { margin-bottom: 0; }
+    .md\:text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+    .md\:text-5xl { font-size: 3rem; line-height: 1; }
+    .md\:pb-10 { padding-bottom: 2.5rem; }
+    .md\:py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+}
+
+@media (min-width: 1024px) {
+    .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* --------------------------------------------------------------------------
+   13. Print Styles
+   -------------------------------------------------------------------------- */
+@media print {
+    body {
+        background-color: #ffffff !important;
+        display: block !important;
+        color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .no-print, nav, footer, .step-indicator, #mobile-menu, .site-footer, button, a {
+        display: none !important;
+    }
+    .print-area {
+        display: block !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .print-area * {
+        visibility: visible !important;
+    }
+}

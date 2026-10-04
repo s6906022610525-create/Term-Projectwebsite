@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เข้าสู่ระบบ - มจพ.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="text-gray-800 bg-gray-50 flex flex-col min-h-screen">
+    <nav class="bg-brand-blue text-white shadow-md sticky top-0 z-50 no-print">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex justify-between items-center">
+            <div class="font-bold text-xl">
+                <a href="index.html"><i class="fa-solid fa-graduation-cap text-brand-orange mr-2"></i> KMUTNB Admission</a>
+            </div>
+            <div class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="index.html" class="hover:text-brand-orange transition">หน้าแรก</a>
+                <a href="status.html" class="hover:text-brand-orange transition">หลักฐานการสมัคร</a>
+                <a href="result.html" class="hover:text-brand-orange transition">ประกาศผลคัดเลือก</a>
+                <a href="registration.html" class="hover:text-brand-orange transition">ลงทะเบียน</a>
+            </div>
+            <div class="flex items-center space-x-3">
+                <div id="auth-guest" class="flex items-center space-x-3">
+                    <a href="login.html" class="hidden sm:inline-block border border-white text-white hover:bg-white hover:text-brand-blue px-4 py-1.5 rounded font-medium text-sm transition">เข้าสู่ระบบ</a>
+                    <a href="registration.html" class="bg-brand-orange hover:bg-brand-orange text-white px-4 py-1.5 rounded shadow font-medium text-sm transition">ลงทะเบียน</a>
+                </div>
+                <div id="auth-user" class="hidden items-center space-x-3">
+                    <span class="hidden sm:inline-block text-sm">สวัสดี, <span data-field="firstName" class="font-bold"></span></span>
+                    <button id="logout-btn" type="button" class="border border-white text-white hover:bg-white hover:text-brand-blue px-3 py-1.5 rounded font-medium text-sm transition"><i class="fa-solid fa-right-from-bracket mr-1"></i>ออกจากระบบ</button>
+                </div>
+                <button id="menu-toggle" class="md:hidden text-white text-2xl focus:outline-none ml-2"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-blue pb-2">
+            <a href="index.html" class="text-white hover:text-brand-orange transition">หน้าแรก</a>
+            <a href="status.html" class="text-white hover:text-brand-orange transition">หลักฐานการสมัคร</a>
+            <a href="result.html" class="text-white hover:text-brand-orange transition">ประกาศผลคัดเลือก</a>
+            <a href="login.html" class="text-white hover:text-brand-orange transition">เข้าสู่ระบบ</a>
+            <a href="registration.html" class="text-white hover:text-brand-orange transition">ลงทะเบียน</a>
+        </div>
+    </nav>
+
+    <main class="flex-grow flex items-center justify-center px-4 py-12">
+        <div class="fade-in bg-white p-8 md:p-10 rounded-xl shadow-md max-w-md w-full border-t-8 border-brand-blue">
+            <div class="text-center mb-6">
+                <i class="fa-solid fa-circle-user text-5xl text-brand-blue mb-3 inline-block"></i>
+                <h2 class="text-2xl font-bold text-brand-blue">เข้าสู่ระบบรับสมัคร</h2>
+                <p class="text-xs text-gray-500 mt-1">มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</p>
+            </div>
+
+            <form id="login-form">
+                <div class="mb-5">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">เลขประจำตัวประชาชน <span class="text-red-500">*</span></label>
+                    <div class="input-icon-group">
+                        <i class="fa-solid fa-id-card input-icon-left"></i>
+                        <input type="text" id="login-id" maxlength="13" required
+                            placeholder="เลขบัตร ปชช. 13 หลัก">
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">รหัสผ่าน <span class="text-red-500">*</span></label>
+                    <div class="input-icon-group has-toggle">
+                        <i class="fa-solid fa-lock input-icon-left"></i>
+                        <input type="password" id="login-password" required
+                            placeholder="รหัสผ่านของคุณ">
+                        <i class="fa-regular fa-eye toggle-password" title="แสดง/ซ่อนรหัสผ่าน"></i>
+                    </div>
+                    <div class="text-right mt-2">
+                        <a href="forgot_password.html"
+                            class="text-xs text-brand-blue hover:text-brand-orange transition font-medium">
+                            <i class="fa-solid fa-key mr-1"></i> ลืมรหัสผ่าน?
+                        </a>
+                    </div>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-brand-blue hover:bg-blue-800 text-white font-bold py-3 px-4 rounded shadow-md transition">
+                    เข้าสู่ระบบ <i class="fa-solid fa-arrow-right-to-bracket ml-1"></i>
+                </button>
+            </form>
+
+            <div class="text-center mt-6 pt-4 border-t border-gray-200 text-sm text-gray-500">
+                ยังไม่มีบัญชีผู้ใช้งาน? <a href="registration.html"
+                    class="text-brand-orange hover:underline font-bold">ลงทะเบียนที่นี่</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer no-print mt-8">
+        <div class="max-w-6xl mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="footer-heading"><i class="fa-solid fa-graduation-cap text-brand-orange mr-2"></i>KMUTNB Admission</h4>
+                    <p class="text-sm leading-relaxed">ระบบรับสมัครนักศึกษาใหม่<br>มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">ลิงก์ด่วน</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html"><i class="fa-solid fa-angle-right mr-1"></i> หน้าแรก</a></li>
+                        <li><a href="terms.html"><i class="fa-solid fa-angle-right mr-1"></i> ลงทะเบียนสมัคร</a></li>
+                        <li><a href="status.html"><i class="fa-solid fa-angle-right mr-1"></i> หลักฐานการสมัคร</a></li>
+                        <li><a href="result.html"><i class="fa-solid fa-angle-right mr-1"></i> ประกาศผลคัดเลือก</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">ติดต่อเรา</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><i class="fa-solid fa-location-dot mr-2 text-brand-orange"></i>1518 ถ.ประชาราษฎร์ 1 แขวงวงศ์สว่าง เขตบางซื่อ กรุงเทพฯ 10800</li>
+                        <li><i class="fa-solid fa-phone mr-2 text-brand-orange"></i>02-555-2000</li>
+                        <li><i class="fa-solid fa-envelope mr-2 text-brand-orange"></i>admission@kmutnb.ac.th</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-xs text-gray-500">
+                © 2570 มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ — ระบบจำลองเพื่อการศึกษา
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

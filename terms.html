@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ข้อตกลงและเงื่อนไขการสมัคร - มจพ.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="text-gray-800 bg-gray-50 flex flex-col min-h-screen">
+    <nav class="bg-brand-blue text-white shadow-md sticky top-0 z-50 no-print">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex justify-between items-center">
+            <div class="font-bold text-xl">
+                <a href="index.html"><i class="fa-solid fa-graduation-cap text-brand-orange mr-2"></i> KMUTNB Admission</a>
+            </div>
+            <div class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="index.html" class="hover:text-brand-orange transition">หน้าแรก</a>
+                <a href="status.html" class="hover:text-brand-orange transition">หลักฐานการสมัคร</a>
+                <a href="result.html" class="hover:text-brand-orange transition">ประกาศผลคัดเลือก</a>
+                <a href="registration.html" class="hover:text-brand-orange transition">ลงทะเบียน</a>
+            </div>
+            <div class="flex items-center space-x-3">
+                <div id="auth-guest" class="flex items-center space-x-3">
+                    <a href="login.html" class="hidden sm:inline-block border border-white text-white hover:bg-white hover:text-brand-blue px-4 py-1.5 rounded font-medium text-sm transition">เข้าสู่ระบบ</a>
+                    <a href="registration.html" class="bg-brand-orange hover:bg-brand-orange text-white px-4 py-1.5 rounded shadow font-medium text-sm transition">ลงทะเบียน</a>
+                </div>
+                <div id="auth-user" class="hidden items-center space-x-3">
+                    <span class="hidden sm:inline-block text-sm">สวัสดี, <span data-field="firstName" class="font-bold"></span></span>
+                    <button id="logout-btn" type="button" class="border border-white text-white hover:bg-white hover:text-brand-blue px-3 py-1.5 rounded font-medium text-sm transition"><i class="fa-solid fa-right-from-bracket mr-1"></i>ออกจากระบบ</button>
+                </div>
+                <button id="menu-toggle" class="md:hidden text-white text-2xl focus:outline-none ml-2"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-blue pb-2">
+            <a href="index.html" class="text-white hover:text-brand-orange transition">หน้าแรก</a>
+            <a href="status.html" class="text-white hover:text-brand-orange transition">หลักฐานการสมัคร</a>
+            <a href="result.html" class="text-white hover:text-brand-orange transition">ประกาศผลคัดเลือก</a>
+            <a href="login.html" class="text-white hover:text-brand-orange transition">เข้าสู่ระบบ</a>
+            <a href="registration.html" class="text-white hover:text-brand-orange transition">ลงทะเบียน</a>
+        </div>
+    </nav>
+
+    <main class="flex-grow max-w-4xl mx-auto px-4 py-12 w-full">
+        <div class="fade-in bg-white p-8 md:p-10 rounded-xl shadow-md border border-gray-200">
+            <div class="text-center mb-8 border-b pb-6">
+                <i class="fa-solid fa-file-contract text-4xl text-brand-orange mb-3"></i>
+                <h2 class="text-2xl font-bold text-brand-blue">ข้อตกลงและเงื่อนไขการสมัครเข้าศึกษา</h2>
+                <p class="text-gray-500 text-sm mt-1">มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</p>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 text-sm text-gray-700 leading-relaxed mb-8 space-y-4 max-h-96 overflow-y-auto">
+                <p class="font-bold text-brand-blue">1. การรับรองข้อมูลส่วนตัว</p>
+                <p>ผู้สมัครต้องกรอกข้อมูลที่เป็นจริงทุกประการ หากตรวจพบในภายหลังว่าข้อมูลหรือเอกสารที่แนบมาเป็นเท็จ มหาวิทยาลัยมีสิทธิ์ยกเลิกการสมัครหรือตัดสิทธิ์การเข้าศึกษาโดยไม่ต้องแจ้งให้ทราบล่วงหน้า</p>
+                
+                <p class="font-bold text-brand-blue">2. เอกสารหลักฐานประกอบการสมัคร</p>
+                <p>ผู้สมัครต้องรับผิดชอบในการจัดเตรียมและอัปโหลดเอกสาร เช่น สำเนาบัตรประชาชน และใบแสดงผลการเรียน (ปพ.1) ให้ชัดเจนและครบถ้วนตามที่กำหนด</p>
+                
+                <p class="font-bold text-brand-blue">3. การชำระเงินค่าธรรมเนียมสมัคร</p>
+                <p>ค่าธรรมเนียมการสมัครคัดเลือกเมื่อชำระแล้วจะไม่สามารถขอคืนได้ไม่ว่ากรณีใดๆ ทั้งสิ้น โปรดตรวจสอบคุณสมบัติและเลือกโครงการรับสมัครให้ถูกต้องก่อนชำระเงิน</p>
+
+                <p class="font-bold text-brand-blue">4. นโยบายความเป็นส่วนตัว (PDPA)</p>
+                <p>มหาวิทยาลัยจะเก็บรักษาข้อมูลส่วนบุคคลของผู้สมัครไว้เป็นความลับ และจะนำไปใช้เพื่อประโยชน์ในการประมวลผลการคัดเลือกเข้าศึกษาและงานทะเบียนนักศึกษาเท่านั้น</p>
+            </div>
+
+            <div class="border-t border-gray-200 pt-6">
+                <label class="flex items-start space-x-3 cursor-pointer mb-8">
+                    <input type="checkbox" id="accept-terms" class="mt-1">
+                    <span class="text-sm text-gray-700">
+                        ข้าพเจ้าได้อ่านและเข้าใจข้อตกลง เงื่อนไขการสมัครคัดเลือกเข้าศึกษาของ มจพ. แล้วทุกประการ และยินยอมปฏิบัติตามเงื่อนไขดังกล่าว
+                    </span>
+                </label>
+
+                <div class="flex flex-col sm:flex-row justify-between gap-4">
+                    <a href="index.html" class="inline-block text-center border border-gray-300 hover:bg-gray-100 text-gray-700 px-6 py-3 rounded-lg font-medium transition">
+                        ยกเลิก / กลับหน้าแรก
+                    </a>
+                    <button id="accept-btn" disabled class="bg-gray-300 text-gray-500 cursor-not-allowed px-8 py-3 rounded-lg font-bold transition">
+                        ยอมรับเงื่อนไขและดำเนินการต่อ <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer no-print mt-8">
+        <div class="max-w-6xl mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="footer-heading"><i class="fa-solid fa-graduation-cap text-brand-orange mr-2"></i>KMUTNB Admission</h4>
+                    <p class="text-sm leading-relaxed">ระบบรับสมัครนักศึกษาใหม่<br>มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">ลิงก์ด่วน</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html"><i class="fa-solid fa-angle-right mr-1"></i> หน้าแรก</a></li>
+                        <li><a href="terms.html"><i class="fa-solid fa-angle-right mr-1"></i> ลงทะเบียนสมัคร</a></li>
+                        <li><a href="status.html"><i class="fa-solid fa-angle-right mr-1"></i> หลักฐานการสมัคร</a></li>
+                        <li><a href="result.html"><i class="fa-solid fa-angle-right mr-1"></i> ประกาศผลคัดเลือก</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">ติดต่อเรา</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><i class="fa-solid fa-location-dot mr-2 text-brand-orange"></i>1518 ถ.ประชาราษฎร์ 1 แขวงวงศ์สว่าง เขตบางซื่อ กรุงเทพฯ 10800</li>
+                        <li><i class="fa-solid fa-phone mr-2 text-brand-orange"></i>02-555-2000</li>
+                        <li><i class="fa-solid fa-envelope mr-2 text-brand-orange"></i>admission@kmutnb.ac.th</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-xs text-gray-500">
+                © 2570 มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ — ระบบจำลองเพื่อการศึกษา
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

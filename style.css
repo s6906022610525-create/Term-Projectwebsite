@@ -1,5 +1,5 @@
 /* ==========================================================================
-   KMUTNB Admission System - Pure CSS (Vanilla CSS - No Frameworks)
+   KMUTNB Admission System - Pure CSS (Vanilla CSS - No External Framework)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -57,7 +57,7 @@ button, input, select, textarea {
     -webkit-font-smoothing: antialiased;
 }
 
-/* Ensure Font Awesome icons render correctly and are never overridden */
+/* Ensure Font Awesome icons render correctly */
 .fa, .fas, .far, .fal, .fad, .fab, .fa-solid, .fa-regular, .fa-brands, [class*="fa-"], [class^="fa-"] {
     font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
 }
@@ -109,6 +109,7 @@ a {
 
 .mx-auto { margin-left: auto; margin-right: auto; }
 .my-auto { margin-top: auto; margin-bottom: auto; }
+.mx-12 { margin-left: 3rem; margin-right: 3rem; }
 
 /* Display & Flexbox/Grid */
 .block { display: block; }
@@ -182,6 +183,7 @@ a {
 .pt-6 { padding-top: 1.5rem; }
 .pt-8 { padding-top: 2rem; }
 .pb-2 { padding-bottom: 0.5rem; }
+.pb-3 { padding-bottom: 0.75rem; }
 .pb-4 { padding-bottom: 1rem; }
 .pb-6 { padding-bottom: 1.5rem; }
 .pb-8 { padding-bottom: 2rem; }
@@ -219,7 +221,6 @@ a {
 .space-y-4 > * + * { margin-top: 1rem; }
 .space-y-6 > * + * { margin-top: 1.5rem; }
 
-/* Padding Directions */
 .pl-3 { padding-left: 0.75rem !important; }
 .pr-3 { padding-right: 0.75rem !important; }
 .pl-10 { padding-left: 2.75rem !important; }
@@ -231,6 +232,7 @@ a {
 .sticky { position: sticky; }
 .fixed { position: fixed; }
 .top-0 { top: 0; }
+.top-5 { top: 1.25rem; }
 .bottom-0 { bottom: 0; }
 .left-0 { left: 0; }
 .right-0 { right: 0; }
@@ -241,76 +243,22 @@ a {
 .top-1\/2 { top: 50%; }
 .-translate-y-1\/2 { transform: translateY(-50%); }
 
+.z-0 { z-index: 0; }
 .z-10 { z-index: 10; }
 .z-50 { z-index: 50; }
 
 .w-full { width: 100%; }
 .w-auto { width: auto; }
+.w-48 { width: 12rem; }
 .h-full { height: 100%; }
 .h-auto { height: auto; }
 .h-16 { height: 4rem; }
+.h-48 { height: 12rem; }
+.h-0\.5 { height: 0.125rem; }
 .min-h-screen { min-height: 100vh; }
 
-/* Input With Icon Component */
-.input-icon-group {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-
-.input-icon-group > i.input-icon-left,
-.input-icon-group > i:first-child:not(.toggle-password) {
-    position: absolute;
-    left: 0.875rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #94A3B8;
-    pointer-events: none;
-    font-size: 1rem;
-    line-height: 1;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 1.25rem;
-    height: 1.25rem;
-    transition: color 0.2s ease;
-}
-
-.input-icon-group:focus-within > i.input-icon-left,
-.input-icon-group:focus-within > i:first-child:not(.toggle-password) {
-    color: var(--brand-orange);
-}
-
-.input-icon-group > input {
-    width: 100%;
-    padding-left: 2.75rem !important;
-    padding-right: 0.875rem !important;
-}
-
-.input-icon-group.has-toggle > input,
-.input-icon-group:has(.toggle-password) > input {
-    padding-right: 2.75rem !important;
-}
-
-.input-icon-group > .toggle-password {
-    position: absolute;
-    right: 0.875rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #94A3B8;
-    cursor: pointer;
-    font-size: 1.05rem;
-    line-height: 1;
-    z-index: 3;
-    padding: 0.25rem;
-    transition: color 0.2s ease;
-}
-
-.input-icon-group > .toggle-password:hover {
-    color: var(--brand-blue);
-}
+.cursor-pointer { cursor: pointer; }
+.cursor-not-allowed { cursor: not-allowed; }
 
 /* --------------------------------------------------------------------------
    4. Typography Utilities
@@ -324,6 +272,8 @@ a {
 .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
 .text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
 .text-5xl { font-size: 3rem; line-height: 1; }
+.text-6xl { font-size: 3.75rem; line-height: 1; }
+.text-7xl { font-size: 4.5rem; line-height: 1; }
 
 .font-normal { font-weight: 400; }
 .font-medium { font-weight: 500; }
@@ -347,6 +297,7 @@ a {
 .text-gray-900 { color: #0F172A; }
 .text-brand-blue { color: var(--brand-blue); }
 .text-brand-orange { color: var(--brand-orange); }
+.text-green-500 { color: #22C55E; }
 .text-green-600 { color: #16A34A; }
 .text-red-500 { color: #EF4444; }
 .text-red-600 { color: #DC2626; }
@@ -359,6 +310,7 @@ a {
 .bg-gray-50 { background-color: #F8FAFC; }
 .bg-gray-100 { background-color: #F1F5F9; }
 .bg-gray-200 { background-color: #E2E8F0; }
+.bg-gray-300 { background-color: #CBD5E1; }
 .bg-gray-800 { background-color: #1E293B; }
 .bg-brand-blue { background-color: var(--brand-blue); }
 .bg-brand-orange { background-color: var(--brand-orange); }
@@ -374,17 +326,17 @@ a {
 .bg-orange-50 { background-color: #FFF7ED; }
 
 .border { border: 1px solid var(--border-color); }
+.border-dashed { border-style: dashed; }
 .border-t { border-top: 1px solid var(--border-color); }
 .border-b { border-bottom: 1px solid var(--border-color); }
 .border-b-2 { border-bottom: 2px solid var(--border-color); }
 .border-gray-200 { border-color: #E2E8F0; }
 .border-gray-300 { border-color: #CBD5E1; }
+.border-gray-400 { border-color: #94A3B8; }
 .border-gray-700 { border-color: #334155; }
 .border-white { border-color: #ffffff; }
 .border-brand-blue { border-color: var(--brand-blue); }
 .border-brand-orange { border-color: var(--brand-orange); }
-.border-green-200 { border-color: #BBF7D0; }
-.border-orange-100 { border-color: #FFEDD5; }
 
 .rounded { border-radius: var(--radius-sm); }
 .rounded-md { border-radius: var(--radius-md); }
@@ -403,18 +355,16 @@ a {
 .max-h-96 { max-height: 24rem; }
 
 .transition { transition: all 0.2s ease-in-out; }
-.transform { transform: translateZ(0); }
-.cursor-pointer { cursor: pointer; }
 
 /* Hover States */
 .hover\:text-brand-orange:hover { color: var(--brand-orange); }
 .hover\:text-brand-blue:hover { color: var(--brand-blue); }
 .hover\:bg-white:hover { background-color: #ffffff; }
+.hover\:bg-gray-100:hover { background-color: #F1F5F9; }
 .hover\:bg-brand-blue:hover { background-color: var(--brand-blue); }
 .hover\:bg-brand-orange:hover { background-color: var(--brand-orange-hover) !important; color: #ffffff !important; }
 .hover\:bg-blue-800:hover { background-color: #1E40AF !important; }
 .hover\:bg-green-700:hover { background-color: #15803D !important; color: #ffffff !important; }
-.hover\:-translate-y-1:hover { transform: translateY(-0.25rem); }
 
 /* --------------------------------------------------------------------------
    6. Navigation & Header
@@ -440,12 +390,6 @@ nav a {
 
 #mobile-menu a:hover {
     background-color: rgba(255,255,255,0.1);
-}
-
-.nav-active {
-    color: var(--brand-orange) !important;
-    border-bottom: 2px solid var(--brand-orange);
-    padding-bottom: 2px;
 }
 
 /* --------------------------------------------------------------------------
@@ -476,13 +420,6 @@ input:focus, select:focus, textarea:focus {
     box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
 }
 
-select:disabled, input:disabled, textarea:disabled {
-    background-color: #F8FAFC !important;
-    color: #94A3B8 !important;
-    cursor: not-allowed;
-    border-color: #E2E8F0 !important;
-}
-
 input[type="checkbox"], input[type="radio"] {
     accent-color: var(--brand-orange);
     cursor: pointer;
@@ -490,58 +427,8 @@ input[type="checkbox"], input[type="radio"] {
     height: 1rem;
 }
 
-.focus\:outline-none:focus {
-    outline: none;
-}
-
-.focus\:ring-2:focus {
-    box-shadow: 0 0 0 2px var(--brand-orange);
-}
-
-.input-error {
-    border-color: #EF4444 !important;
-    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2) !important;
-    animation: shake 0.4s ease;
-}
-
-.error-message {
-    color: #DC2626;
-    font-size: 0.75rem;
-    margin-top: 0.25rem;
-    animation: fadeIn 0.3s ease;
-}
-
 /* --------------------------------------------------------------------------
-   8. Upload Zone (step2)
-   -------------------------------------------------------------------------- */
-.upload-zone {
-    border: 2px dashed #CBD5E1;
-    border-radius: var(--radius-lg);
-    padding: 24px;
-    background: #F8FAFC;
-    text-align: center;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.upload-zone:hover {
-    border-color: var(--brand-orange);
-    background: #FFF7ED;
-}
-
-.upload-zone i {
-    font-size: 2rem;
-    color: #9CA3AF;
-    margin-bottom: 8px;
-    transition: color 0.3s ease;
-}
-
-.upload-zone:hover i {
-    color: var(--brand-orange);
-}
-
-/* --------------------------------------------------------------------------
-   9. Step Progress Indicator (step1-4)
+   8. Step Progress Indicator
    -------------------------------------------------------------------------- */
 .step-indicator {
     transition: all 0.3s ease;
@@ -583,26 +470,8 @@ input[type="checkbox"], input[type="radio"] {
 }
 
 /* --------------------------------------------------------------------------
-   10. Cards, Tables & Components
+   9. Animations & General Components
    -------------------------------------------------------------------------- */
-.hover-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.hover-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
-    padding: 0.75rem 1rem;
-}
-
-/* Buttons */
 button {
     font-family: inherit;
     cursor: pointer;
@@ -614,7 +483,6 @@ button:active {
     transform: scale(0.97);
 }
 
-/* Animations */
 .fade-in {
     animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
@@ -641,14 +509,8 @@ button:active {
     }
 }
 
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    20%, 60% { transform: translateX(-4px); }
-    40%, 80% { transform: translateX(4px); }
-}
-
 /* --------------------------------------------------------------------------
-   11. Footer
+   10. Footer & Print Styles
    -------------------------------------------------------------------------- */
 .site-footer {
     background-color: #0F172A;
@@ -674,69 +536,19 @@ button:active {
     margin-bottom: 12px;
 }
 
-/* Hero Overlay */
-.hero-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    padding-bottom: 1.5rem;
-    background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
-}
-
-/* Alert Warning */
-.alert-warning {
-    background-color: #FCF9E8;
-    border: 1px solid #F3E5AB;
-    color: #9B7B22;
-    padding: 1rem;
-    border-radius: var(--radius-md);
-    margin-bottom: 2rem;
-    text-align: center;
-    font-size: 0.875rem;
-    font-weight: 500;
-}
-
-/* --------------------------------------------------------------------------
-   12. Responsive Breakpoints
-   -------------------------------------------------------------------------- */
 @media (min-width: 640px) {
-    .sm\:inline { display: inline; }
     .sm\:inline-block { display: inline-block; }
-    .sm\:block { display: block; }
-    .sm\:flex { display: flex; }
-    .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .sm\:px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .sm\:flex-row { flex-direction: row; }
 }
 
 @media (min-width: 768px) {
-    .hero-overlay { padding-bottom: 2.5rem; }
     .md\:flex { display: flex; }
-    .md\:grid { display: grid; }
     .md\:hidden { display: none !important; }
     .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .md\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .md\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
-    .md\:col-span-3 { grid-column: span 3 / span 3; }
-    .md\:col-span-9 { grid-column: span 9 / span 9; }
-    .md\:text-right { text-align: right; }
-    .md\:px-12 { padding-left: 3rem; padding-right: 3rem; }
-    .md\:mb-0 { margin-bottom: 0; }
-    .md\:text-xl { font-size: 1.25rem; line-height: 1.75rem; }
-    .md\:text-5xl { font-size: 3rem; line-height: 1; }
-    .md\:pb-10 { padding-bottom: 2.5rem; }
-    .md\:py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+    .md\:p-10 { padding: 2.5rem; }
 }
 
-@media (min-width: 1024px) {
-    .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-
-/* --------------------------------------------------------------------------
-   13. Print Styles
-   -------------------------------------------------------------------------- */
 @media print {
     body {
         background-color: #ffffff !important;
@@ -756,8 +568,5 @@ button:active {
         margin: 0 !important;
         width: 100% !important;
         max-width: 100% !important;
-    }
-    .print-area * {
-        visibility: visible !important;
     }
 }

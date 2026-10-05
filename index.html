@@ -43,15 +43,17 @@
     </nav>
 
     <main>
-        <!-- Hero Section -->
-        <section class="relative w-full">
-            <img src="header.jpg" alt="กำหนดการรับนักศึกษาใหม่ ปีการศึกษา 2570 - KMUTNB" class="w-full h-auto block">
-            <div class="hero-overlay">
-                <a href="terms.html" class="inline-block bg-brand-orange hover:bg-brand-orange text-white text-lg px-8 py-4 rounded-full font-bold shadow-lg transform transition hover:-translate-y-1">
-                    <i class="fa-solid fa-pen-to-square mr-2"></i> สมัครเข้าศึกษาต่อ
-                </a>
-            </div>
-        </section>
+       <!-- Hero Section -->
+<section class="relative w-full">
+    <img src="header.jpg" alt="กำหนดการรับนักศึกษาใหม่ ปีการศึกษา 2570 - KMUTNB" class="w-full h-auto block">
+    
+    <!-- ใช้ absolute inset-0 เพื่อให้ครอบเต็มรูปแล้วจัดกลาง -->
+    <div class="hero-overlay absolute inset-0 flex justify-center items-center bg-black/20">
+        <a href="terms.html" class="inline-block bg-brand-orange hover:bg-brand-orange text-white text-lg px-8 py-4 rounded-full font-bold shadow-lg transform transition hover:-translate-y-1">
+            <i class="fa-solid fa-pen-to-square mr-2"></i> สมัครเข้าศึกษาต่อ
+        </a>
+    </div>
+</section>
 
         <!-- Section: กำหนดการรับสมัคร -->
         <section class="max-w-5xl mx-auto px-4 py-16">
